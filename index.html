@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pra você, Ana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,500&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbeaea;--ink:#4a1230;--rose:#b83a62;--soft:#f3c9d3;--card:#fff6f4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#3a0f27;--ink:#fbe3e6;--rose:#f09ab3;--soft:#6a2145;--card:#4c1634}}
+:root[data-theme="dark"]{--bg:#3a0f27;--ink:#fbe3e6;--rose:#f09ab3;--soft:#6a2145;--card:#4c1634}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;font-size:17px;line-height:1.6;text-align:center}
+main{max-width:30rem;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+h1{font-family:Lora,Georgia,serif;font-weight:500;font-size:2.6rem;line-height:1.15;margin:0 0 .5rem}
+.sub{margin:0 0 2rem;color:var(--rose);font-style:italic;font-family:Lora,Georgia,serif;font-size:1.15rem}
+.count{background:var(--card);border:2px solid var(--soft);border-radius:1.5rem;padding:1.5rem 1rem;margin-bottom:2rem}
+.count p{margin:0 0 .75rem}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.grid b{display:block;font-family:Lora,Georgia,serif;font-size:2.2rem;font-weight:500;color:var(--rose);line-height:1.1}
+.grid span{font-size:.9rem}
+button{font:inherit;font-weight:600;background:var(--rose);color:var(--bg);border:0;border-radius:2rem;padding:.9rem 1.8rem;cursor:pointer}
+button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.letter{text-align:left;animation:in .8s ease;background:var(--card);border-radius:1rem;padding:1.5rem;font-family:Lora,Georgia,serif;font-size:1.1rem;line-height:1.75}
+.letter p{margin:0 0 1rem}
+.letter .sign{text-align:right;color:var(--rose);margin:0}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.letter{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Ana, minha preta</h1>
+  <p class="sub">Fiz isso pra você.</p>
+
+  <section class="count">
+    <p>Desde 07/07/2026, estamos juntos há</p>
+    <div class="grid">
+      <div><b id="d">0</b><span>dias</span></div>
+      <div><b id="h">00</b><span>horas</span></div>
+      <div><b id="m">00</b><span>min</span></div>
+      <div><b id="s">00</b><span>seg</span></div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <p>Você disse que eu mudei. Eu ouvi, e você tem razão em sentir isso.</p>
+    <p>Mas uma coisa não mudou: eu te amo loucamente, Ana. Mais do que sei dizer.</p>
+    <p>Lembro de quando você me pediu pra não te abandonar. Eu não vou. Estou aqui.</p>
+    <p>Lembro de quando eu estive no hospital e você ficou comigo. Eu já fiquei do seu lado também, e faria de novo quantas vezes precisasse. É assim que a gente cuida um do outro.</p>
+    <p>Vou te mostrar meu amor nos detalhes, todo dia.</p>
+    <p>Eu te amo, minha preta.</p>
+    <p class="sign">Wendel</p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var start=new Date(2026,6,7,0,0,0).getTime();
+  function pad(n){return n<10?"0"+n:""+n}
+  function tick(){
+    var t=Math.max(0,Math.floor((Date.now()-start)/1000));
+    document.getElementById("d").textContent=Math.floor(t/86400);
+    document.getElementById("h").textContent=pad(Math.floor(t%86400/3600));
+    document.getElementById("m").textContent=pad(Math.floor(t%3600/60));
+    document.getElementById("s").textContent=pad(t%60);
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
